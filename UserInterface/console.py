@@ -89,7 +89,7 @@ def run_ui(lista_carti):
         show_menu()
         optiune = input('Optiunea aleasa: ')
         if optiune == '1':
-            prajituri = handle_crud(lista_carti)
+            lista_carti = handle_crud(lista_carti)
         elif optiune == 'x':
             stop = False
         else:
