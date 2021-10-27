@@ -1,4 +1,6 @@
 """
+from Domain.carte import getNewBook, get_book_string
+
 carte1 = getNewBook(1, "Sherlock Holmes", "thriller", 49.60, "silver")
 carte2 = getNewBook(2, "Pride and prejudice", "romance", 74.50, "gold")
 carte3 = getNewBook(3, "Interpretarea viselor", "psihologic", 60, "none")
@@ -8,8 +10,7 @@ print(get_book_string(carte2))
 print(get_book_string(carte3))
 """
 
-from Domain.carte import getNewBook, get_book_string
-from Logic.crud import create, read, update, delete
+from Logic.crud import create, update, delete
 
 lista = []
 
