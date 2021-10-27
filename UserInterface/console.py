@@ -1,4 +1,4 @@
-from Domain.carte import getNewBook, get_book_string, get_price, get_genre, get_discount, get_title
+from Domain.carte2 import getNewBook, get_book_string, get_price, get_genre, get_discount, get_title
 from Logic.crud import create, read, update, delete
 
 def show_menu():
@@ -15,13 +15,15 @@ def show_menu():
         """
     )
 
+
 def handle_add(lista_carti):
     id_carte = int(input('Dati id-ul cartii care se actualizeaza: '))
     titlu = input('Dati noul titlu al cartii: ')
     gen = input('Dati noul gen al cartii: ')
     pret = float(input('Dati noul pret al cartii: '))
     reducere = input('Dati noul tip de reducere al cartii: ')
-    return create(lista_carti, id_carte, titlu, gen, pret, reducere)
+    lista_carti = create(lista_carti, id_carte, titlu, gen, pret, reducere)
+    return lista_carti
 
 
 def handle_update(lista_carti):
@@ -65,11 +67,11 @@ def handle_crud(lista_carti):
 
         optiune = input('Optiunea aleasa: ')
         if optiune == '1':
-            prajituri = handle_add(lista_carti)
+            lista_carti = handle_add(lista_carti)
         elif optiune == '2':
-            prajituri = handle_update(lista_carti)
+            lista_carti = handle_update(lista_carti)
         elif optiune == '3':
-            prajituri = handle_delete(lista_carti)
+            lista_carti = handle_delete(lista_carti)
         elif optiune == 'a':
             handle_show_all(lista_carti)
         elif optiune == 'd':
@@ -81,16 +83,16 @@ def handle_crud(lista_carti):
     return lista_carti
 
 
-def run_ui(prajituri):
+def run_ui(lista_carti):
     stop = True
     while stop:
         show_menu()
         optiune = input('Optiunea aleasa: ')
         if optiune == '1':
-            prajituri = handle_crud(prajituri)
+            prajituri = handle_crud(lista_carti)
         elif optiune == 'x':
             stop = False
         else:
             print('Optiune invalida.')
 
-    return prajituri
+    return lista_carti

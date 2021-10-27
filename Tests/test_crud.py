@@ -1,4 +1,4 @@
-from Domain.carte import getNewBook
+from Domain.carte2 import *
 from Logic.crud import create, read, update, delete
 
 

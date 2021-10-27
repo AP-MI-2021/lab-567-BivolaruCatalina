@@ -1,4 +1,4 @@
-from Domain.carte import getNewBook, get_id
+from Domain.carte2 import *
 
 
 def create(lista_carti: list, _id: int, _titlu: str, _gen: str, _pret: float, _reducere: str):
