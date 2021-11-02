@@ -1,5 +1,6 @@
 from Domain.carte2 import getNewBook, get_book_string, get_price, get_genre, get_discount, get_title
 from Logic.crud import create, read, update, delete
+from Logic.discount import reducere_carte
 
 def show_menu():
     print(
@@ -90,6 +91,8 @@ def run_ui(lista_carti):
         optiune = input('Optiunea aleasa: ')
         if optiune == '1':
             lista_carti = handle_crud(lista_carti)
+        if optiune == '2':
+            lista_carti = reducere_carte(lista_carti)
         elif optiune == 'x':
             stop = False
         else:
