@@ -1,4 +1,4 @@
-def getNewBook(_id: int, _titlu: str, _gen: str, _pret: float, _reducere: str):
+def getNewSell(_id: int, _titlu: str, _gen: str, _pret: float, _reducere: str):
     book = tuple((_id, _titlu, _gen, _pret, _reducere))
     return book
 
@@ -23,5 +23,5 @@ def get_discount(carte):
     return carte[4]
 
 
-def get_book_string(carte):
+def get_sell_string(carte):
     return f'Cartea cu id-iul {get_id(carte)}, cu numele {get_title(carte)}, de gen {get_genre(carte)}, are pretul {get_price(carte)} si i se aplica reducerea de tip {get_discount(carte)}'

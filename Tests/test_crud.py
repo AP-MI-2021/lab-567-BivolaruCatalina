@@ -1,21 +1,21 @@
-from Domain.carte2 import *
+from Domain.vanzare import *
 from Logic.crud import create, read, update, delete
 
 
 def get_data():
     return [
-    getNewBook(1, "Carte 1", "psihologic", 63.70, "silver"),
-    getNewBook(2, "Carte 2", "thriller", 52.50, "gold"),
-    getNewBook(3, "Carte 3", "informativ", 49, "none"),
-    getNewBook(4, "Carte 4", "romantic", 45.90, "gold"),
-    getNewBook(5, "Carte 5", "comedie", 53.80, "none")
+    getNewSell(1, "Carte 1", "psihologic", 63.70, "silver"),
+    getNewSell(2, "Carte 2", "thriller", 52.50, "gold"),
+    getNewSell(3, "Carte 3", "informativ", 49, "none"),
+    getNewSell(4, "Carte 4", "romantic", 45.90, "gold"),
+    getNewSell(5, "Carte 5", "comedie", 53.80, "none")
     ]
 
 
 def test_create():
     lista = get_data()
     lista_noua = get_data()
-    new_book = getNewBook(6, "Carte 6", "psihologic", 24.40, "silver")
+    new_book = getNewSell(6, "Carte 6", "psihologic", 24.40, "silver")
     lista = create(lista, 6, "Carte 6", "psihologic", 24.40, "silver")
 
     assert len(lista) == len(lista_noua) + 1
@@ -34,7 +34,7 @@ def test_read():
 def test_update():
     lista = get_data()
     lista_aux = get_data()
-    new_book = getNewBook(5, "Carte 6", "psihologic", 24.40, "silver")
+    new_book = getNewSell(5, "Carte 6", "psihologic", 24.40, "silver")
     lista = update(lista, new_book)
 
     assert len(lista) == len(lista_aux)
@@ -44,7 +44,7 @@ def test_update():
 def test_delete():
     lista = get_data()
     lista_noua = get_data()
-    carte_eliminata = getNewBook(3, "Carte 3", "informativ", 49, "none")
+    carte_eliminata = getNewSell(3, "Carte 3", "informativ", 49, "none")
     lista_noua = delete(lista_noua, 3)
 
     assert len(lista) == len(lista_noua) + 1
