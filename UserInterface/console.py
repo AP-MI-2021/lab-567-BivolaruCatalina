@@ -75,7 +75,8 @@ def handle_reducere(lista_vanzari):
 
 def handle_schimbare_gen(lista_vanzari):
     titlu = input('Introduceti titlul carti ce va fi schimbata: ')
-    lista_vanzari = schimbare_gen(lista_vanzari, titlu)
+    gen_nou = input('Introduceti noul gen al cartii: ')
+    lista_vanzari = schimbare_gen(lista_vanzari, titlu, gen_nou)
     return lista_vanzari
 
 
