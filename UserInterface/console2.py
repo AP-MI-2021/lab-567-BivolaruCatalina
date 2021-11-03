@@ -14,7 +14,7 @@ def show_menu():
     Stergere: id carte                                                     -> comanda: delete
     Exemplu stergere: delete,3
     Modificare: id, titlu, gen, pret, tip reducere (silver, gold sau none) -> comanda: update
-    Exemplu modificare: update,2,Lama,animals
+    Exemplu modificare: update,2,Lama,animals,25.40,silver
     Afisare lista vanzari.                                                 -> comanda: showall
     Aplicare reduceri.                                                     -> comanda: discount
     Modificarea genului unei carti date: titlu, noul gen                   -> comanda: gen
@@ -44,20 +44,33 @@ def run_ui(lista_vanzari):
             if com[0] == "add":
                 try:
                     lista_vanzari = create(lista_vanzari, int(com[1]), com[2], com[3], float(com[4]), com[5])
-                except ValueError as ve:
-                    print("Eroare: ", ve)
+                except ValueError:
+                    print("Cel putin una dintre valori nu corespunde tipului de parametru!")
+                    continue
             elif com[0] == "delete":
-                lista_vanzari = delete(lista_vanzari, int(com[1]))
+                try:
+                    lista_vanzari = delete(lista_vanzari, int(com[1]))
+                except ValueError:
+                    print("A doua valoare introdusa nu este un numar intreg!")
+                    continue
             elif com[0] == "update":
-                lista_vanzari = update(lista_vanzari, getNewSell(int(com[1]), com[2], com[3], float(com[4]), com[5]))
+                try:
+                    lista_vanzari = update(lista_vanzari, getNewSell(int(com[1]), com[2], com[3], float(com[4]), com[5]))
+                except ValueError:
+                    print("Cel putin una dintre valori nu corespunde tipului de parametru!")
+                    continue
             elif com[0] == "showall":
                 show_all(lista_vanzari)
             elif com[0] == "discount":
-                 print(reducere_carte(lista_vanzari))
+                 lista_vanzari = reducere_carte(lista_vanzari)
             elif com[0] == "gen":
-                print(schimbare_gen(lista_vanzari, com[1], com[2]))
+                try:
+                    lista_vanzari = schimbare_gen(lista_vanzari, com[1], com[2])
+                except ValueError:
+                    print("Cel putin una dintre valori nu corespunde tipului de parametru!")
+                    continue
             elif com[0] == "ordonare":
-                print(ordonare_pret(lista_vanzari))
+                lista_vanzari = ordonare_pret(lista_vanzari)
             elif com[0] == "x":
                 stop = False
                 break
