@@ -11,7 +11,7 @@ print(get_book_string(carte3))
 """
 
 from Logic.crud import create, update, delete
-from UserInterface.console import run_ui
+from UserInterface.console2 import run_ui
 
 lista = []
 
