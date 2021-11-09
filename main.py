@@ -11,13 +11,18 @@ print(get_book_string(carte3))
 """
 
 from Logic.crud import create, update, delete
-from UserInterface.console2 import run_ui
+from UserInterface.console import run_ui
 
 lista = []
 
 lista = create(lista, 1, "Sherlock Holmes", "thriller", 49.60, "silver")
 lista = create(lista, 2, "Pride and prejudice", "romance", 74.50, "gold")
 lista = create(lista, 3, "Interpretarea viselor", "psihologic", 60, "none")
+lista = create(lista, 4, "Razboi si Pace", "psihologic", 78, "silver")
+lista = create(lista, 5, "Pride and prejudice", "romance", 63.90, "gold")
+lista = create(lista, 6, "Disparuti", "thriller", 60, "none")
+
+
 
 run_ui(lista)
 """
