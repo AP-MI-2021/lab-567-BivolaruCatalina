@@ -88,8 +88,8 @@ def handle_show_all(lista_vanzari: list):
     :param lista_vanzari: lista in care se afla toate vanzarile
     :return: nu returneaza nimic
     """
-        for carte in lista_vanzari:
-            print(get_sell_string(carte))
+    for carte in lista_vanzari:
+        print(get_sell_string(carte))
 
 
 def handle_show_details(lista_vanzari: list):
