@@ -1,4 +1,4 @@
-def getNewSell(_id: int, _titlu: str, _gen: str, _pret: float, _reducere: str):
+def getNewSell(_id: int, _titlu: str, _gen: str, _pret: float, _reducere: str) -> tuple:
     book = tuple((_id, _titlu, _gen, _pret, _reducere))
     return book
 

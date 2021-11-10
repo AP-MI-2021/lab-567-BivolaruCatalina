@@ -2,7 +2,12 @@ from Domain.vanzare import get_discount, get_price, getNewSell, get_id, get_titl
 from Logic.crud import update
 
 
-def reducere_carte(lista_carti):
+def reducere_carte(lista_carti: list) -> list:
+    """
+    Aplica reducerea fiecarei carti in functie de tipul de reducere.
+    :param lista_carti: lista in care se afla toate vanzarile
+    :return: lista dupa modificarea preturilor
+    """
     for carte in lista_carti:
             if get_discount(carte) == "silver":
                 pret = get_price(carte) - get_price(carte)/20

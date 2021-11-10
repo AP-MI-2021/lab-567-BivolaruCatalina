@@ -3,6 +3,11 @@ from Logic.pret_min_per_gen import fiecare_gen
 
 
 def titlu_diferit(lista_vanzari):
+    """
+    Selecteaza titlurile si cartile astfel incat sa apara o singura data in lista dupa care numara cate titluri sunt pentru fiecare gen.
+    :param lista_vanzari: lista in care se afla toate vanzarile
+    :return: lista formata din tupluri de forma (gen, numar de titluri)
+    """
     genuri = fiecare_gen(lista_vanzari)
     carti_unice = []
     titlu_unic = []

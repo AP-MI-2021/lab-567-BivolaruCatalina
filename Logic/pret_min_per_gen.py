@@ -2,7 +2,12 @@ from Domain.vanzare import get_price, get_genre
 from Logic.ordonare_vanzari import ordonare_pret
 
 
-def fiecare_gen(lista_vanzari):
+def fiecare_gen(lista_vanzari: list) -> list:
+    """
+    Selecteaza genurile intalnite in lista de vanzari.
+    :param lista_vanzari: lista in care se afla toate vanzarile
+    :return: genurile
+    """
     genuri = []
     for carte in lista_vanzari:
         if not get_genre(carte) in genuri:
@@ -10,7 +15,12 @@ def fiecare_gen(lista_vanzari):
     return genuri
 
 
-def pret_min(lista_vanzari):
+def pret_min(lista_vanzari: list) -> list:
+    """
+    Selecteaza pretul minim al fiecarui gen intalnit in lista de vanzari
+    :param lista_vanzari: lista in care se afla toate vanzarile
+    :return: lista formata de tupluri de forma (gen, pret_minim)
+    """
     lista_vanzari = ordonare_pret(lista_vanzari)
     genuri = fiecare_gen(lista_vanzari)
     result1 = []

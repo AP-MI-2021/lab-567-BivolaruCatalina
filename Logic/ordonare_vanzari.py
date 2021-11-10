@@ -2,7 +2,12 @@ from Domain.vanzare import get_price, get_id
 from Logic.crud import delete
 
 
-def ordonare_pret(lista_vanzari):
+def ordonare_pret(lista_vanzari: list) -> list:
+    """
+    Ordoneaza lista dupa pretul cartilor
+    :param lista_vanzari: lista in care se afla toate vanzarile
+    :return: lista ordonata
+    """
     result = []
     i = 0
     while lista_vanzari:
