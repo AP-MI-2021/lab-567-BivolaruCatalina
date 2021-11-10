@@ -34,7 +34,7 @@ def handle_add(lista_vanzari: list, list_versions: list, current_version: int):
     """
     try:
         list_versions, current_version = handle_new_list(list_versions, current_version, lista_vanzari)
-        id_carte = int(input('Dati id-ul cartii care se actualizeaza: '))
+        id_carte = int(input('Dati id-ul cartii care se adauga: '))
         titlu = input('Dati noul titlu al cartii: ')
         gen = input('Dati noul gen al cartii: ')
         pret = float(input('Dati noul pret al cartii: '))
@@ -223,12 +223,19 @@ def handle_crud(lista_vanzari: list, list_versions: list, current_version:int):
         elif optiune == 'a':
             handle_show_all(lista_vanzari)
         elif optiune == 'u':
-            lista_vanzari, current_version = handle_undo(lista_vanzari, list_versions, current_version)
+            try:
+                lista_vanzari, current_version = handle_undo(lista_vanzari, list_versions, current_version)
+            except ValueError as ve:
+                print("Eroare: ", ve)
+                continue
         elif optiune == 'r':
-            lista_vanzari, current_version = handle_redo(lista_vanzari, list_versions, current_version)
+            try:
+                lista_vanzari, current_version = handle_redo(lista_vanzari, list_versions, current_version)
+            except ValueError as ve:
+                print("Eroare: ", ve)
+                continue
         elif optiune == 'd':
             handle_show_details(lista_vanzari)
-
         elif optiune == 'b':
            break
         else:

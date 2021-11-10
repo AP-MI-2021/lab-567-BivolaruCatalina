@@ -7,9 +7,10 @@ def do_undo(list_versions: list, current_version: int):
     """
     if current_version < 1:
         print("Nu se mai poate face undo!")
-        return
-    current_version -= 1
-    return list_versions[current_version], current_version
+        return list_versions[current_version], current_version
+    else:
+        current_version -= 1
+        return list_versions[current_version], current_version
 
 
 def do_redo(list_versions, current_version):
@@ -21,6 +22,6 @@ def do_redo(list_versions, current_version):
     """
     if current_version == len(list_versions) - 1:
         print("Nu se mai poate face redo!")
-        return
+        return list_versions[current_version], current_version
     current_version += 1
     return list_versions[current_version], current_version
